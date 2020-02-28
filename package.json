@@ -2,15 +2,16 @@
   "name": "mentor-chatbot-backend",
   "version": "1.0.0",
   "description": "Backend for Mentor Chatbot",
-  "main": "server.js",
+  "main": "app/server.js",
   "scripts": {
+    "dev": "nodemon app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JapanNeinpan/mentor-chatbot-backend.git"
   },
-  "author": "",
+  "author": "Chutipong Bruhns",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JapanNeinpan/mentor-chatbot-backend/issues"
