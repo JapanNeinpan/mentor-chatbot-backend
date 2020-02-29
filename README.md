@@ -5,6 +5,6 @@ Create a .env file with necessary credentials
 
 // .env
 
-DB_USER = <username>
-DB_USER_PASS = <password>
-DB_CONNECTION = <link to Mongo DB>
+DB_USER = {USERNAME}  
+DB_USER_PASS = {PASSWORD}  
+DB_CONNECTION = {MONGODB URL}  
