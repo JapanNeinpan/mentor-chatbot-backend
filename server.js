@@ -5,9 +5,6 @@ const bodyParser     = require('body-parser');
 require('dotenv/config');
 
 const app = express();
-const port = 8000;
-
-
 
 // MIDDLESWARES
 app.use(bodyParser.json());
@@ -23,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 // Connect to DB
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_USER_PASS}@cluster0-xkgor.gcp.mongodb.net/test?retryWrites=true&w=majority`,
+mongoose.connect(process.env.DB_CONNECTION,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -32,6 +29,6 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_USER_PAS
 );
 
 //Starting the server
-app.listen(port, () => {
-    console.log('We are live on port:' + port);
+app.listen(process.env.PORT, () => {
+    console.log('We are live on port: ' + process.env.PORT);
 });
