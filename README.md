@@ -1,7 +1,6 @@
 # mentor-chatbot-backend
 
-In order for the backend to properly function.
-Create a .env file with necessary credentials
+In order for the backend to properly function. Create a .env file in the root directory with necessary credentials.  
 
 // .env Example
 
