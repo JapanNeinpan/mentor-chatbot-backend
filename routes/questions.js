@@ -15,7 +15,17 @@ router.get('/', async (req, res) => {
 // GET A SPECIFIED QUESTION
 router.get('/:questionId', async (req, res) => {
     try {
-        const post = await Question.find(req.params.questionId);
+        const post = await Question.findById(req.params.questionId);
+        res.json(post);
+    } catch (err) {
+        res.json({message: err})
+    }
+});
+
+// DELETE A QUESTION
+router.delete('/:questionId', async (req, res) => {
+    try {
+        const post = await Question.deleteOne({"_id": req.params.questionId});
         res.json(post);
     } catch (err) {
         res.json({message: err})
@@ -37,5 +47,7 @@ router.post('/', async (req, res) => {
         res.json({message: err})
     }
 });
+
+
 
 module.exports = router;
