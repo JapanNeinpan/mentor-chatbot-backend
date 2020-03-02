@@ -2,12 +2,15 @@
 const express       = require('express');
 const mongoose      = require('mongoose');
 const cors          = require('cors');
+const favicon       = require('serve-favicon');
+const path          = require('path');
 const bodyParser    = require('body-parser');
 require('dotenv/config');
 
 const app = express();
 
 // MIDDLESWARES
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(bodyParser.json());
 app.use(cors());
 
