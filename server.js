@@ -1,7 +1,8 @@
-const express        = require('express');
-const mongoose       = require('mongoose');
-const cors           = require('cors');
-const bodyParser     = require('body-parser');
+// IMPORTS
+const express       = require('express');
+const mongoose      = require('mongoose');
+const cors          = require('cors');
+const bodyParser    = require('body-parser');
 require('dotenv/config');
 
 const app = express();
@@ -12,21 +13,25 @@ app.use(cors());
 
 // IMPORT ROUTES
 const questionsRoutes = require('./routes/questions');
-app.use('/questions', questionsRoutes);
+const userRoutes = require('./routes/users');
 
-// ROUTES
+app.use('/questions', questionsRoutes);
+app.use('/users', userRoutes);
+
+// ROOT ROUTES
 app.get('/', (req, res) => {
-    res.send('This is the backend api for the mentor chatbot');
+    res.send('Hallo, das ist das Backend des Mentor Chatbots!');
 });
 
+// OPTIONS
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+};
+
 // Connect to DB
-mongoose.connect(process.env.DB_CONNECTION,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    },
-    () => console.log('Connection to MongoDB Successful!')
-);
+mongoose.connect(process.env.DB_CONNECTION, options)
+    .then(() => console.log('Connection to MongoDB Successful!'));
 
 //Starting the server
 app.listen(process.env.PORT || 7125, () => {
