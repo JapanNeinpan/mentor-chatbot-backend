@@ -2,7 +2,7 @@ const express   = require('express');
 const User  = require('../models/User');
 const router = express.Router();
 
-// GET ALL QUESTIONS
+// GET ALL USERS
 router.get('/', async (req, res) => {
     try {
         const users = await User.find();
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET A SPECIFIED User
+// GET A SPECIFIED USER
 router.get('/:userId', async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
@@ -22,7 +22,7 @@ router.get('/:userId', async (req, res) => {
     }
 });
 
-// DELETE A User
+// DELETE A USER
 router.delete('/:UserId', async (req, res) => {
     try {
         const user = await User.deleteOne({"_id": req.params.userId});
@@ -32,7 +32,7 @@ router.delete('/:UserId', async (req, res) => {
     }
 });
 
-//SUBMIT A User
+//SUBMIT A USER
 router.post('/', async (req, res) => {
 
     const User = new User({
@@ -46,7 +46,5 @@ router.post('/', async (req, res) => {
         res.json({message: err})
     }
 });
-
-
 
 module.exports = router;
