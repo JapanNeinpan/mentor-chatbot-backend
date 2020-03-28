@@ -37,6 +37,6 @@ mongoose.connect(process.env.DB_CONNECTION, options)
     .then(() => console.log('Connection to MongoDB Successful!'));
 
 //Starting the server
-app.listen(process.env.PORT || 7125, () => {
+let server = app.listen(process.env.PORT || 7125, () => {
     console.log('We are live on port: ' + process.env.PORT);
 });
