@@ -35,12 +35,12 @@ router.delete('/:UserId', async (req, res) => {
 //SUBMIT A USER
 router.post('/', async (req, res) => {
 
-    const User = new User({
+    const user = new User({
         name: req.body.name
     });
 
     try {
-        const submittedUser = await User.save();
+        const submittedUser = await user.save();
         res.json(submittedUser);
     } catch (err) {
         res.json({message: err})
