@@ -37,7 +37,6 @@ router.post('/', async (req, res) => {
 
     const question = new Question({
         question: req.body.question,
-        author: req.body.author
     });
 
     try {
@@ -47,7 +46,5 @@ router.post('/', async (req, res) => {
         res.json({message: err})
     }
 });
-
-
 
 module.exports = router;
