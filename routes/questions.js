@@ -36,7 +36,7 @@ router.delete('/:questionId', async (req, res) => {
 router.post('/', async (req, res) => {
 
     const question = new Question({
-        question: req.body.question,
+        questions: req.body.questions,
     });
 
     try {
