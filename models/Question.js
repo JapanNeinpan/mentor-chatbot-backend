@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ResponseSchema = require('./Response');
 
 const QuestionSchema = mongoose.Schema({
-    question: [{
+    questions: [{
         type: ResponseSchema,
         required: true,
     }],
