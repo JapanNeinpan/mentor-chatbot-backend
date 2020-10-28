@@ -17,7 +17,11 @@ const QuestionSchema = mongoose.Schema({
     tags: [{
         type: String,
         required: false
-    }]
+    }],
+    resolved: {
+        type: Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('questions', QuestionSchema);
