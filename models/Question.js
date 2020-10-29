@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const ResponseSchema = require('./Response');
 
 const QuestionSchema = mongoose.Schema({
@@ -21,7 +22,11 @@ const QuestionSchema = mongoose.Schema({
     resolved: {
         type: Boolean,
         default: false
-    }
+    },
+    subscribers:[{
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    }]
 });
 
 module.exports = mongoose.model('questions', QuestionSchema);
