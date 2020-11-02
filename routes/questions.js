@@ -32,6 +32,17 @@ router.delete('/:questionId', async (req, res) => {
     }
 });
 
+// UPDATE A QUESTION
+router.put('/:questionId', async (req, res) => {
+    try {
+        console.log(req);
+        const question = await Question.findOne({"_id": req.params.questionId});
+        res.json(question);
+    } catch (err) {
+        res.json({message: err})
+    }
+});
+
 //SUBMIT A QUESTION
 router.post('/', async (req, res) => {
 
