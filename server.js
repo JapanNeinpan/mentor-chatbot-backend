@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
 };
 
 // Connect to DB
