@@ -32,11 +32,12 @@ router.delete('/:questionId', async (req, res) => {
     }
 });
 
-// UPDATE A QUESTION
+// PUSH ANSWER TO A QUESTION
 router.put('/:questionId', async (req, res) => {
     try {
-        console.log(req);
-        const question = await Question.findOne({"_id": req.params.questionId});
+        let filter = {"_id": req.params.questionId};
+        let update = req.body;
+        const question = await Question.updateOne(filter, {$push: {answers: update}});
         res.json(question);
     } catch (err) {
         res.json({message: err})
